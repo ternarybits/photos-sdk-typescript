@@ -3,11 +3,11 @@
 export {
   Albums,
   type AlbumResponse,
-  type AlbumListResponse,
   type AlbumDeleteResponse,
   type AlbumCreateParams,
   type AlbumUpdateParams,
   type AlbumListParams,
+  type AlbumResponsesCursorPage,
 } from './albums';
 export {
   Assets,
