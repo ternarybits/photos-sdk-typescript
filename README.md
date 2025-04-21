@@ -217,6 +217,37 @@ On timeout, an `APIConnectionTimeoutError` is thrown.
 
 Note that requests which time out will be [retried twice by default](#retries).
 
+## Auto-pagination
+
+List methods in the Photos API are paginated.
+You can use the `for await … of` syntax to iterate through items across all pages:
+
+```ts
+async function fetchAllAPIAssets(params) {
+  const allAPIAssets = [];
+  // Automatically fetches more pages as needed.
+  for await (const assetResponse of client.api.assets.list({ starting_after_id: 'asset_abc123' })) {
+    allAPIAssets.push(assetResponse);
+  }
+  return allAPIAssets;
+}
+```
+
+Alternatively, you can request a single page at a time:
+
+```ts
+let page = await client.api.assets.list({ starting_after_id: 'asset_abc123' });
+for (const assetResponse of page.data) {
+  console.log(assetResponse);
+}
+
+// Convenience methods are provided for manually paginating:
+while (page.hasNextPage()) {
+  page = await page.getNextPage();
+  // ...
+}
+```
+
 ## Advanced Usage
 
 ### Accessing raw Response data (e.g., headers)
