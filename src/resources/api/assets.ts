@@ -1,0 +1,208 @@
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+import { APIResource } from '../../core/resource';
+import { APIPromise } from '../../core/api-promise';
+import { type Uploadable } from '../../core/uploads';
+import { buildHeaders } from '../../internal/headers';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
+
+export class Assets extends APIResource {
+  /**
+   * Uploads a new asset file (image or video) along with its metadata. If an asset
+   * with the same checksum already exists, returns the existing asset's metadata.
+   */
+  create(body: AssetCreateParams, options?: RequestOptions): APIPromise<AssetResponse> {
+    return this._client.post('/api/assets', {
+      body,
+      ...options,
+      headers: buildHeaders([{ 'Content-Type': 'application/x-www-form-urlencoded' }, options?.headers]),
+    });
+  }
+
+  /**
+   * Retrieves detailed metadata for a specific asset, including EXIF information and
+   * asset metrics.
+   */
+  retrieve(assetID: string, options?: RequestOptions): APIPromise<AssetResponse> {
+    return this._client.get(path`/api/assets/${assetID}`, options);
+  }
+
+  /**
+   * Retrieves a paginated list of assets, optionally filtered by album. Assets are
+   * ordered by local creation time, descending.
+   */
+  list(
+    query: AssetListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<AssetListResponse> {
+    return this._client.get('/api/assets', { query, ...options });
+  }
+
+  /**
+   * Deletes a specific asset and its associated data (including the file from
+   * storage).
+   */
+  delete(assetID: string, options?: RequestOptions): APIPromise<unknown> {
+    return this._client.delete(path`/api/assets/${assetID}`, options);
+  }
+
+  /**
+   * Downloads the original file for a specific asset.
+   */
+  download(assetID: string, options?: RequestOptions): APIPromise<unknown> {
+    return this._client.get(path`/api/assets/${assetID}/download`, options);
+  }
+
+  /**
+   * Downloads a thumbnail for a specific asset. The exact thumbnail returned depends
+   * on availability and the optional `size` parameter.
+   */
+  downloadThumbnail(
+    assetID: string,
+    query: AssetDownloadThumbnailParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<unknown> {
+    return this._client.get(path`/api/assets/${assetID}/thumbnail`, { query, ...options });
+  }
+}
+
+export interface AssetResponse {
+  id: string;
+
+  checksum: string;
+
+  created_at: string;
+
+  device_asset_id: string;
+
+  device_id: string;
+
+  file_created_at: string;
+
+  file_modified_at: string;
+
+  local_datetime: string;
+
+  mime_type: string;
+
+  original_file_name: string;
+
+  updated_at: string;
+
+  exif?: AssetResponse.Exif | null;
+
+  metrics?: Record<string, number | null> | null;
+}
+
+export namespace AssetResponse {
+  export interface Exif {
+    altitude?: number | null;
+
+    auto_stack_id?: string | null;
+
+    city?: string | null;
+
+    country?: string | null;
+
+    description?: string | null;
+
+    digitized_datetime?: string | null;
+
+    exposure_bias?: number | null;
+
+    exposure_time?: number | null;
+
+    f_number?: number | null;
+
+    focal_length?: number | null;
+
+    fps?: number | null;
+
+    iso?: number | null;
+
+    latitude?: number | null;
+
+    lens_model?: string | null;
+
+    live_photo_cid?: string | null;
+
+    longitude?: number | null;
+
+    make?: string | null;
+
+    model?: string | null;
+
+    modified_datetime?: string | null;
+
+    orientation?: number | null;
+
+    original_datetime?: string | null;
+
+    profile_description?: string | null;
+
+    projection_type?: string | null;
+
+    rating?: number | null;
+
+    state?: string | null;
+  }
+}
+
+export interface AssetListResponse {
+  data: Array<AssetResponse>;
+
+  has_more: boolean;
+}
+
+export type AssetDeleteResponse = unknown;
+
+export type AssetDownloadResponse = unknown;
+
+export type AssetDownloadThumbnailResponse = unknown;
+
+export interface AssetCreateParams {
+  asset_data: Uploadable;
+
+  device_asset_id: string;
+
+  device_id: string;
+
+  file_created_at: string;
+
+  file_modified_at: string;
+}
+
+export interface AssetListParams {
+  /**
+   * Filter by assets in a specific album
+   */
+  album_id?: string | null;
+
+  limit?: number;
+
+  /**
+   * Asset ID to start listing assets after
+   */
+  starting_after_id?: string | null;
+}
+
+export interface AssetDownloadThumbnailParams {
+  /**
+   * Desired thumbnail size (e.g., small, medium)
+   */
+  size?: string | null;
+}
+
+export declare namespace Assets {
+  export {
+    type AssetResponse as AssetResponse,
+    type AssetListResponse as AssetListResponse,
+    type AssetDeleteResponse as AssetDeleteResponse,
+    type AssetDownloadResponse as AssetDownloadResponse,
+    type AssetDownloadThumbnailResponse as AssetDownloadThumbnailResponse,
+    type AssetCreateParams as AssetCreateParams,
+    type AssetListParams as AssetListParams,
+    type AssetDownloadThumbnailParams as AssetDownloadThumbnailParams,
+  };
+}
