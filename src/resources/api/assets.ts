@@ -2,6 +2,7 @@
 
 import { APIResource } from '../../core/resource';
 import { APIPromise } from '../../core/api-promise';
+import { CursorPage, type CursorPageParams, PagePromise } from '../../core/pagination';
 import { type Uploadable } from '../../core/uploads';
 import { buildHeaders } from '../../internal/headers';
 import { RequestOptions } from '../../internal/request-options';
@@ -35,8 +36,8 @@ export class Assets extends APIResource {
   list(
     query: AssetListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<AssetListResponse> {
-    return this._client.get('/api/assets', { query, ...options });
+  ): PagePromise<AssetResponsesCursorPage, AssetResponse> {
+    return this._client.getAPIList('/api/assets', CursorPage<AssetResponse>, { query, ...options });
   }
 
   /**
@@ -66,6 +67,8 @@ export class Assets extends APIResource {
     return this._client.get(path`/api/assets/${assetID}/thumbnail`, { query, ...options });
   }
 }
+
+export type AssetResponsesCursorPage = CursorPage<AssetResponse>;
 
 export interface AssetResponse {
   id: string;
@@ -149,12 +152,6 @@ export namespace AssetResponse {
   }
 }
 
-export interface AssetListResponse {
-  data: Array<AssetResponse>;
-
-  has_more: boolean;
-}
-
 export type AssetDeleteResponse = unknown;
 
 export type AssetDownloadResponse = unknown;
@@ -173,18 +170,11 @@ export interface AssetCreateParams {
   file_modified_at: string;
 }
 
-export interface AssetListParams {
+export interface AssetListParams extends CursorPageParams {
   /**
    * Filter by assets in a specific album
    */
   album_id?: string | null;
-
-  limit?: number;
-
-  /**
-   * Asset ID to start listing assets after
-   */
-  starting_after_id?: string | null;
 }
 
 export interface AssetDownloadThumbnailParams {
@@ -197,10 +187,10 @@ export interface AssetDownloadThumbnailParams {
 export declare namespace Assets {
   export {
     type AssetResponse as AssetResponse,
-    type AssetListResponse as AssetListResponse,
     type AssetDeleteResponse as AssetDeleteResponse,
     type AssetDownloadResponse as AssetDownloadResponse,
     type AssetDownloadThumbnailResponse as AssetDownloadThumbnailResponse,
+    type AssetResponsesCursorPage as AssetResponsesCursorPage,
     type AssetCreateParams as AssetCreateParams,
     type AssetListParams as AssetListParams,
     type AssetDownloadThumbnailParams as AssetDownloadThumbnailParams,

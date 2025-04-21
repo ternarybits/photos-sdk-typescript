@@ -12,6 +12,7 @@ import {
   Assets,
 } from './assets';
 import { APIPromise } from '../../../core/api-promise';
+import { CursorPage, type CursorPageParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -45,8 +46,8 @@ export class Albums extends APIResource {
   list(
     query: AlbumListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<AlbumListResponse> {
-    return this._client.get('/api/albums', { query, ...options });
+  ): PagePromise<AlbumResponsesCursorPage, AlbumResponse> {
+    return this._client.getAPIList('/api/albums', CursorPage<AlbumResponse>, { query, ...options });
   }
 
   /**
@@ -58,6 +59,8 @@ export class Albums extends APIResource {
   }
 }
 
+export type AlbumResponsesCursorPage = CursorPage<AlbumResponse>;
+
 export interface AlbumResponse {
   id: string;
 
@@ -68,12 +71,6 @@ export interface AlbumResponse {
   updated_at: string;
 
   description?: string | null;
-}
-
-export interface AlbumListResponse {
-  data: Array<AlbumResponse>;
-
-  has_more: boolean;
 }
 
 export type AlbumDeleteResponse = unknown;
@@ -90,22 +87,15 @@ export interface AlbumUpdateParams {
   name?: string | null;
 }
 
-export interface AlbumListParams {
-  limit?: number;
-
-  /**
-   * Album ID to start listing albums after
-   */
-  starting_after_id?: string | null;
-}
+export interface AlbumListParams extends CursorPageParams {}
 
 Albums.Assets = Assets;
 
 export declare namespace Albums {
   export {
     type AlbumResponse as AlbumResponse,
-    type AlbumListResponse as AlbumListResponse,
     type AlbumDeleteResponse as AlbumDeleteResponse,
+    type AlbumResponsesCursorPage as AlbumResponsesCursorPage,
     type AlbumCreateParams as AlbumCreateParams,
     type AlbumUpdateParams as AlbumUpdateParams,
     type AlbumListParams as AlbumListParams,

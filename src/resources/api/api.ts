@@ -9,8 +9,8 @@ import {
   AssetDownloadThumbnailParams,
   AssetDownloadThumbnailResponse,
   AssetListParams,
-  AssetListResponse,
   AssetResponse,
+  AssetResponsesCursorPage,
   Assets,
 } from './assets';
 import * as AlbumsAPI from './albums/albums';
@@ -18,8 +18,8 @@ import {
   AlbumCreateParams,
   AlbumDeleteResponse,
   AlbumListParams,
-  AlbumListResponse,
   AlbumResponse,
+  AlbumResponsesCursorPage,
   AlbumUpdateParams,
   Albums,
 } from './albums/albums';
@@ -36,10 +36,10 @@ export declare namespace API {
   export {
     Assets as Assets,
     type AssetResponse as AssetResponse,
-    type AssetListResponse as AssetListResponse,
     type AssetDeleteResponse as AssetDeleteResponse,
     type AssetDownloadResponse as AssetDownloadResponse,
     type AssetDownloadThumbnailResponse as AssetDownloadThumbnailResponse,
+    type AssetResponsesCursorPage as AssetResponsesCursorPage,
     type AssetCreateParams as AssetCreateParams,
     type AssetListParams as AssetListParams,
     type AssetDownloadThumbnailParams as AssetDownloadThumbnailParams,
@@ -48,8 +48,8 @@ export declare namespace API {
   export {
     Albums as Albums,
     type AlbumResponse as AlbumResponse,
-    type AlbumListResponse as AlbumListResponse,
     type AlbumDeleteResponse as AlbumDeleteResponse,
+    type AlbumResponsesCursorPage as AlbumResponsesCursorPage,
     type AlbumCreateParams as AlbumCreateParams,
     type AlbumUpdateParams as AlbumUpdateParams,
     type AlbumListParams as AlbumListParams,
