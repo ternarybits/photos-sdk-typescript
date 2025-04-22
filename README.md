@@ -30,15 +30,9 @@ const client = new Photos({
 });
 
 async function main() {
-  const assetResponse = await client.assets.create({
-    asset_data: fs.createReadStream('path/to/file'),
-    device_asset_id: 'device_asset_id',
-    device_id: 'device_id',
-    file_created_at: '2019-12-27T18:11:19.117Z',
-    file_modified_at: '2019-12-27T18:11:19.117Z',
-  });
+  const albumResponse = await client.albums.create({ name: 'name' });
 
-  console.log(assetResponse.id);
+  console.log(albumResponse.id);
 }
 
 main();
@@ -57,14 +51,8 @@ const client = new Photos({
 });
 
 async function main() {
-  const params: Photos.AssetCreateParams = {
-    asset_data: fs.createReadStream('path/to/file'),
-    device_asset_id: 'device_asset_id',
-    device_id: 'device_id',
-    file_created_at: '2019-12-27T18:11:19.117Z',
-    file_modified_at: '2019-12-27T18:11:19.117Z',
-  };
-  const assetResponse: Photos.AssetResponse = await client.assets.create(params);
+  const params: Photos.AlbumCreateParams = { name: 'name' };
+  const albumResponse: Photos.AlbumResponse = await client.albums.create(params);
 }
 
 main();
@@ -140,23 +128,15 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const assetResponse = await client.assets
-    .create({
-      asset_data: fs.createReadStream('path/to/file'),
-      device_asset_id: 'device_asset_id',
-      device_id: 'device_id',
-      file_created_at: '2019-12-27T18:11:19.117Z',
-      file_modified_at: '2019-12-27T18:11:19.117Z',
-    })
-    .catch(async (err) => {
-      if (err instanceof Photos.APIError) {
-        console.log(err.status); // 400
-        console.log(err.name); // BadRequestError
-        console.log(err.headers); // {server: 'nginx', ...}
-      } else {
-        throw err;
-      }
-    });
+  const albumResponse = await client.albums.create({ name: 'name' }).catch(async (err) => {
+    if (err instanceof Photos.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 }
 
 main();
@@ -191,7 +171,7 @@ const client = new Photos({
 });
 
 // Or, configure per-request:
-await client.assets.create({ asset_data: fs.createReadStream('path/to/file'), device_asset_id: 'device_asset_id', device_id: 'device_id', file_created_at: '2019-12-27T18:11:19.117Z', file_modified_at: '2019-12-27T18:11:19.117Z' }, {
+await client.albums.create({ name: 'name' }, {
   maxRetries: 5,
 });
 ```
@@ -208,7 +188,7 @@ const client = new Photos({
 });
 
 // Override per-request:
-await client.assets.create({ asset_data: fs.createReadStream('path/to/file'), device_asset_id: 'device_asset_id', device_id: 'device_id', file_created_at: '2019-12-27T18:11:19.117Z', file_modified_at: '2019-12-27T18:11:19.117Z' }, {
+await client.albums.create({ name: 'name' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -262,29 +242,13 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Photos();
 
-const response = await client.assets
-  .create({
-    asset_data: fs.createReadStream('path/to/file'),
-    device_asset_id: 'device_asset_id',
-    device_id: 'device_id',
-    file_created_at: '2019-12-27T18:11:19.117Z',
-    file_modified_at: '2019-12-27T18:11:19.117Z',
-  })
-  .asResponse();
+const response = await client.albums.create({ name: 'name' }).asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: assetResponse, response: raw } = await client.assets
-  .create({
-    asset_data: fs.createReadStream('path/to/file'),
-    device_asset_id: 'device_asset_id',
-    device_id: 'device_id',
-    file_created_at: '2019-12-27T18:11:19.117Z',
-    file_modified_at: '2019-12-27T18:11:19.117Z',
-  })
-  .withResponse();
+const { data: albumResponse, response: raw } = await client.albums.create({ name: 'name' }).withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(assetResponse.id);
+console.log(albumResponse.id);
 ```
 
 ### Logging
