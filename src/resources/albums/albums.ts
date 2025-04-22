@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../core/resource';
+import { APIResource } from '../../core/resource';
 import * as AssetsAPI from './assets';
 import {
   AlbumAssetAssociation,
@@ -11,10 +11,10 @@ import {
   AssetRemoveResponse,
   Assets,
 } from './assets';
-import { APIPromise } from '../../../core/api-promise';
-import { CursorPage, type CursorPageParams, PagePromise } from '../../../core/pagination';
-import { RequestOptions } from '../../../internal/request-options';
-import { path } from '../../../internal/utils/path';
+import { APIPromise } from '../../core/api-promise';
+import { CursorPage, type CursorPageParams, PagePromise } from '../../core/pagination';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class Albums extends APIResource {
   assets: AssetsAPI.Assets = new AssetsAPI.Assets(this._client);
