@@ -30,7 +30,7 @@ const client = new Photos({
 });
 
 async function main() {
-  const assetResponse = await client.api.assets.create({
+  const assetResponse = await client.assets.create({
     asset_data: fs.createReadStream('path/to/file'),
     device_asset_id: 'device_asset_id',
     device_id: 'device_id',
@@ -57,14 +57,14 @@ const client = new Photos({
 });
 
 async function main() {
-  const params: Photos.API.AssetCreateParams = {
+  const params: Photos.AssetCreateParams = {
     asset_data: fs.createReadStream('path/to/file'),
     device_asset_id: 'device_asset_id',
     device_id: 'device_id',
     file_created_at: '2019-12-27T18:11:19.117Z',
     file_modified_at: '2019-12-27T18:11:19.117Z',
   };
-  const assetResponse: Photos.API.AssetResponse = await client.api.assets.create(params);
+  const assetResponse: Photos.AssetResponse = await client.assets.create(params);
 }
 
 main();
@@ -88,7 +88,7 @@ import Photos, { toFile } from 'photos';
 const client = new Photos();
 
 // If you have access to Node `fs` we recommend using `fs.createReadStream()`:
-await client.api.assets.create({
+await client.assets.create({
   asset_data: fs.createReadStream('/path/to/file'),
   device_asset_id: 'device_asset_id',
   device_id: 'device_id',
@@ -97,7 +97,7 @@ await client.api.assets.create({
 });
 
 // Or if you have the web `File` API you can pass a `File` instance:
-await client.api.assets.create({
+await client.assets.create({
   asset_data: new File(['my bytes'], 'file'),
   device_asset_id: 'device_asset_id',
   device_id: 'device_id',
@@ -106,7 +106,7 @@ await client.api.assets.create({
 });
 
 // You can also pass a `fetch` `Response`:
-await client.api.assets.create({
+await client.assets.create({
   asset_data: await fetch('https://somesite/file'),
   device_asset_id: 'device_asset_id',
   device_id: 'device_id',
@@ -115,14 +115,14 @@ await client.api.assets.create({
 });
 
 // Finally, if none of the above are convenient, you can use our `toFile` helper:
-await client.api.assets.create({
+await client.assets.create({
   asset_data: await toFile(Buffer.from('my bytes'), 'file'),
   device_asset_id: 'device_asset_id',
   device_id: 'device_id',
   file_created_at: '2019-12-27T18:11:19.117Z',
   file_modified_at: '2019-12-27T18:11:19.117Z',
 });
-await client.api.assets.create({
+await client.assets.create({
   asset_data: await toFile(new Uint8Array([0, 1, 2]), 'file'),
   device_asset_id: 'device_asset_id',
   device_id: 'device_id',
@@ -140,7 +140,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const assetResponse = await client.api.assets
+  const assetResponse = await client.assets
     .create({
       asset_data: fs.createReadStream('path/to/file'),
       device_asset_id: 'device_asset_id',
@@ -191,7 +191,7 @@ const client = new Photos({
 });
 
 // Or, configure per-request:
-await client.api.assets.create({ asset_data: fs.createReadStream('path/to/file'), device_asset_id: 'device_asset_id', device_id: 'device_id', file_created_at: '2019-12-27T18:11:19.117Z', file_modified_at: '2019-12-27T18:11:19.117Z' }, {
+await client.assets.create({ asset_data: fs.createReadStream('path/to/file'), device_asset_id: 'device_asset_id', device_id: 'device_id', file_created_at: '2019-12-27T18:11:19.117Z', file_modified_at: '2019-12-27T18:11:19.117Z' }, {
   maxRetries: 5,
 });
 ```
@@ -208,7 +208,7 @@ const client = new Photos({
 });
 
 // Override per-request:
-await client.api.assets.create({ asset_data: fs.createReadStream('path/to/file'), device_asset_id: 'device_asset_id', device_id: 'device_id', file_created_at: '2019-12-27T18:11:19.117Z', file_modified_at: '2019-12-27T18:11:19.117Z' }, {
+await client.assets.create({ asset_data: fs.createReadStream('path/to/file'), device_asset_id: 'device_asset_id', device_id: 'device_id', file_created_at: '2019-12-27T18:11:19.117Z', file_modified_at: '2019-12-27T18:11:19.117Z' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -223,20 +223,20 @@ List methods in the Photos API are paginated.
 You can use the `for await … of` syntax to iterate through items across all pages:
 
 ```ts
-async function fetchAllAPIAssets(params) {
-  const allAPIAssets = [];
+async function fetchAllAssets(params) {
+  const allAssets = [];
   // Automatically fetches more pages as needed.
-  for await (const assetResponse of client.api.assets.list({ starting_after_id: 'asset_abc123' })) {
-    allAPIAssets.push(assetResponse);
+  for await (const assetResponse of client.assets.list({ starting_after_id: 'asset_abc123' })) {
+    allAssets.push(assetResponse);
   }
-  return allAPIAssets;
+  return allAssets;
 }
 ```
 
 Alternatively, you can request a single page at a time:
 
 ```ts
-let page = await client.api.assets.list({ starting_after_id: 'asset_abc123' });
+let page = await client.assets.list({ starting_after_id: 'asset_abc123' });
 for (const assetResponse of page.data) {
   console.log(assetResponse);
 }
@@ -262,7 +262,7 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Photos();
 
-const response = await client.api.assets
+const response = await client.assets
   .create({
     asset_data: fs.createReadStream('path/to/file'),
     device_asset_id: 'device_asset_id',
@@ -274,7 +274,7 @@ const response = await client.api.assets
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: assetResponse, response: raw } = await client.api.assets
+const { data: assetResponse, response: raw } = await client.assets
   .create({
     asset_data: fs.createReadStream('path/to/file'),
     device_asset_id: 'device_asset_id',

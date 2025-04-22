@@ -22,10 +22,29 @@ import { APIPromise } from './core/api-promise';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
+import {
+  AssetCreateParams,
+  AssetDeleteResponse,
+  AssetDownloadResponse,
+  AssetDownloadThumbnailParams,
+  AssetDownloadThumbnailResponse,
+  AssetListParams,
+  AssetResponse,
+  AssetResponsesCursorPage,
+  Assets,
+} from './resources/assets';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
 import { isEmptyObj } from './internal/utils/values';
-import { API as ApiapiAPI } from './resources/api/api';
+import {
+  AlbumCreateParams,
+  AlbumDeleteResponse,
+  AlbumListParams,
+  AlbumResponse,
+  AlbumResponsesCursorPage,
+  AlbumUpdateParams,
+  Albums,
+} from './resources/albums/albums';
 
 export interface ClientOptions {
   /**
@@ -701,14 +720,36 @@ export class Photos {
 
   static toFile = Uploads.toFile;
 
-  api: API.API = new API.API(this);
+  assets: API.Assets = new API.Assets(this);
+  albums: API.Albums = new API.Albums(this);
 }
-Photos.API = ApiapiAPI;
+Photos.Assets = Assets;
+Photos.Albums = Albums;
 export declare namespace Photos {
   export type RequestOptions = Opts.RequestOptions;
 
   export import CursorPage = Pagination.CursorPage;
   export { type CursorPageParams as CursorPageParams, type CursorPageResponse as CursorPageResponse };
 
-  export { ApiapiAPI as API };
+  export {
+    Assets as Assets,
+    type AssetResponse as AssetResponse,
+    type AssetDeleteResponse as AssetDeleteResponse,
+    type AssetDownloadResponse as AssetDownloadResponse,
+    type AssetDownloadThumbnailResponse as AssetDownloadThumbnailResponse,
+    type AssetResponsesCursorPage as AssetResponsesCursorPage,
+    type AssetCreateParams as AssetCreateParams,
+    type AssetListParams as AssetListParams,
+    type AssetDownloadThumbnailParams as AssetDownloadThumbnailParams,
+  };
+
+  export {
+    Albums as Albums,
+    type AlbumResponse as AlbumResponse,
+    type AlbumDeleteResponse as AlbumDeleteResponse,
+    type AlbumResponsesCursorPage as AlbumResponsesCursorPage,
+    type AlbumCreateParams as AlbumCreateParams,
+    type AlbumUpdateParams as AlbumUpdateParams,
+    type AlbumListParams as AlbumListParams,
+  };
 }
