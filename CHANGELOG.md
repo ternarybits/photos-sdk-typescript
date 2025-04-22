@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.3 (2025-04-22)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/ternarybits/photos-sdk-typescript/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
+
+### Features
+
+* **api:** update via SDK Studio ([e656a7e](https://github.com/ternarybits/photos-sdk-typescript/commit/e656a7ed3f4b0c428ca830cdf87cb3081de8813b))
+
+
+### Chores
+
+* **perf:** faster base64 decoding ([b48320c](https://github.com/ternarybits/photos-sdk-typescript/commit/b48320c0954c830233cd4030967d115ee5b0cfef))
+
 ## 0.1.0-alpha.2 (2025-04-22)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/ternarybits/photos-sdk-typescript/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
