@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2025-04-23)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/ternarybits/photos-sdk-typescript/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Features
+
+* **api:** update via SDK Studio ([ea0cbde](https://github.com/ternarybits/photos-sdk-typescript/commit/ea0cbde87595bb17e3b7e26895db61fb945ec106))
+
+
+### Chores
+
+* **ci:** add timeout thresholds for CI jobs ([ac3a840](https://github.com/ternarybits/photos-sdk-typescript/commit/ac3a840455230e59991874687bc8cee668a79f68))
+
 ## 0.1.0-alpha.3 (2025-04-22)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/ternarybits/photos-sdk-typescript/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
