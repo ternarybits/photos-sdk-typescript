@@ -93,9 +93,13 @@ export interface AssetResponse {
 
   updated_at: string;
 
+  download_url?: string | null;
+
   exif?: AssetResponse.Exif | null;
 
   metrics?: Record<string, number | null> | null;
+
+  thumbnail_url?: string | null;
 }
 
 export namespace AssetResponse {
