@@ -24,7 +24,6 @@ import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
 import {
   AssetCreateParams,
-  AssetDeleteResponse,
   AssetDownloadThumbnailParams,
   AssetListParams,
   AssetResponse,
@@ -36,7 +35,6 @@ import { formatRequestDetails, loggerFor } from './internal/utils/log';
 import { isEmptyObj } from './internal/utils/values';
 import {
   AlbumCreateParams,
-  AlbumDeleteResponse,
   AlbumListParams,
   AlbumResponse,
   AlbumResponsesCursorPage,
@@ -732,7 +730,6 @@ export declare namespace Photos {
   export {
     Assets as Assets,
     type AssetResponse as AssetResponse,
-    type AssetDeleteResponse as AssetDeleteResponse,
     type AssetResponsesCursorPage as AssetResponsesCursorPage,
     type AssetCreateParams as AssetCreateParams,
     type AssetListParams as AssetListParams,
@@ -742,7 +739,6 @@ export declare namespace Photos {
   export {
     Albums as Albums,
     type AlbumResponse as AlbumResponse,
-    type AlbumDeleteResponse as AlbumDeleteResponse,
     type AlbumResponsesCursorPage as AlbumResponsesCursorPage,
     type AlbumCreateParams as AlbumCreateParams,
     type AlbumUpdateParams as AlbumUpdateParams,

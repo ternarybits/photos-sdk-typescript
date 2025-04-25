@@ -41,8 +41,11 @@ export class Assets extends APIResource {
    * Deletes a specific asset and its associated data (including the file from
    * storage).
    */
-  delete(assetID: string, options?: RequestOptions): APIPromise<unknown> {
-    return this._client.delete(path`/api/assets/${assetID}`, options);
+  delete(assetID: string, options?: RequestOptions): APIPromise<void> {
+    return this._client.delete(path`/api/assets/${assetID}`, {
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
   }
 
   /**
@@ -160,8 +163,6 @@ export namespace AssetResponse {
   }
 }
 
-export type AssetDeleteResponse = unknown;
-
 export interface AssetCreateParams {
   asset_data: Uploadable;
 
@@ -191,7 +192,6 @@ export interface AssetDownloadThumbnailParams {
 export declare namespace Assets {
   export {
     type AssetResponse as AssetResponse,
-    type AssetDeleteResponse as AssetDeleteResponse,
     type AssetResponsesCursorPage as AssetResponsesCursorPage,
     type AssetCreateParams as AssetCreateParams,
     type AssetListParams as AssetListParams,
