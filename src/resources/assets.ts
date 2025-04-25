@@ -4,8 +4,8 @@ import { APIResource } from '../core/resource';
 import { APIPromise } from '../core/api-promise';
 import { CursorPage, type CursorPageParams, PagePromise } from '../core/pagination';
 import { type Uploadable } from '../core/uploads';
-import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
+import { multipartFormRequestOptions } from '../internal/uploads';
 import { path } from '../internal/utils/path';
 
 export class Assets extends APIResource {
@@ -14,11 +14,7 @@ export class Assets extends APIResource {
    * with the same checksum already exists, returns the existing asset's metadata.
    */
   create(body: AssetCreateParams, options?: RequestOptions): APIPromise<AssetResponse> {
-    return this._client.post('/api/assets', {
-      body,
-      ...options,
-      headers: buildHeaders([{ 'Content-Type': 'application/x-www-form-urlencoded' }, options?.headers]),
-    });
+    return this._client.post('/api/assets', multipartFormRequestOptions({ body, ...options }, this._client));
   }
 
   /**
