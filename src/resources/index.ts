@@ -13,8 +13,6 @@ export {
   Assets,
   type AssetResponse,
   type AssetDeleteResponse,
-  type AssetDownloadResponse,
-  type AssetDownloadThumbnailResponse,
   type AssetCreateParams,
   type AssetListParams,
   type AssetDownloadThumbnailParams,

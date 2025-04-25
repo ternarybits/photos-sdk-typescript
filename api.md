@@ -4,8 +4,6 @@ Types:
 
 - <code><a href="./src/resources/assets.ts">AssetResponse</a></code>
 - <code><a href="./src/resources/assets.ts">AssetDeleteResponse</a></code>
-- <code><a href="./src/resources/assets.ts">AssetDownloadResponse</a></code>
-- <code><a href="./src/resources/assets.ts">AssetDownloadThumbnailResponse</a></code>
 
 Methods:
 
@@ -13,8 +11,8 @@ Methods:
 - <code title="get /api/assets/{asset_id}">client.assets.<a href="./src/resources/assets.ts">retrieve</a>(assetID) -> AssetResponse</code>
 - <code title="get /api/assets">client.assets.<a href="./src/resources/assets.ts">list</a>({ ...params }) -> AssetResponsesCursorPage</code>
 - <code title="delete /api/assets/{asset_id}">client.assets.<a href="./src/resources/assets.ts">delete</a>(assetID) -> unknown</code>
-- <code title="get /api/assets/{asset_id}/download">client.assets.<a href="./src/resources/assets.ts">download</a>(assetID) -> unknown</code>
-- <code title="get /api/assets/{asset_id}/thumbnail">client.assets.<a href="./src/resources/assets.ts">downloadThumbnail</a>(assetID, { ...params }) -> unknown</code>
+- <code title="get /api/assets/{asset_id}/download">client.assets.<a href="./src/resources/assets.ts">download</a>(assetID) -> void</code>
+- <code title="get /api/assets/{asset_id}/thumbnail">client.assets.<a href="./src/resources/assets.ts">downloadThumbnail</a>(assetID, { ...params }) -> void</code>
 
 # Albums
 
