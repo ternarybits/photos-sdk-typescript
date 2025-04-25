@@ -3,6 +3,7 @@
 import { APIResource } from '../../core/resource';
 import * as AssetsAPI from '../assets';
 import { APIPromise } from '../../core/api-promise';
+import { buildHeaders } from '../../internal/headers';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
 
@@ -17,16 +18,24 @@ export class Assets extends APIResource {
   /**
    * Adds one or more existing assets to a specific album.
    */
-  add(albumID: string, body: AssetAddParams, options?: RequestOptions): APIPromise<unknown> {
-    return this._client.post(path`/api/albums/${albumID}/assets`, { body, ...options });
+  add(albumID: string, body: AssetAddParams, options?: RequestOptions): APIPromise<void> {
+    return this._client.post(path`/api/albums/${albumID}/assets`, {
+      body,
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
   }
 
   /**
    * Removes one or more assets from a specific album. Note: This does not delete the
    * assets themselves.
    */
-  remove(albumID: string, body: AssetRemoveParams, options?: RequestOptions): APIPromise<unknown> {
-    return this._client.delete(path`/api/albums/${albumID}/assets`, { body, ...options });
+  remove(albumID: string, body: AssetRemoveParams, options?: RequestOptions): APIPromise<void> {
+    return this._client.delete(path`/api/albums/${albumID}/assets`, {
+      body,
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
   }
 }
 
@@ -35,10 +44,6 @@ export interface AlbumAssetAssociation {
 }
 
 export type AssetListResponse = Array<AssetsAPI.AssetResponse>;
-
-export type AssetAddResponse = unknown;
-
-export type AssetRemoveResponse = unknown;
 
 export interface AssetAddParams {
   asset_ids: Array<string>;
@@ -52,8 +57,6 @@ export declare namespace Assets {
   export {
     type AlbumAssetAssociation as AlbumAssetAssociation,
     type AssetListResponse as AssetListResponse,
-    type AssetAddResponse as AssetAddResponse,
-    type AssetRemoveResponse as AssetRemoveResponse,
     type AssetAddParams as AssetAddParams,
     type AssetRemoveParams as AssetRemoveParams,
   };

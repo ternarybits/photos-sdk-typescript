@@ -5,14 +5,13 @@ import * as AssetsAPI from './assets';
 import {
   AlbumAssetAssociation,
   AssetAddParams,
-  AssetAddResponse,
   AssetListResponse,
   AssetRemoveParams,
-  AssetRemoveResponse,
   Assets,
 } from './assets';
 import { APIPromise } from '../../core/api-promise';
 import { CursorPage, type CursorPageParams, PagePromise } from '../../core/pagination';
+import { buildHeaders } from '../../internal/headers';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
 
@@ -54,8 +53,11 @@ export class Albums extends APIResource {
    * Deletes a specific album. Note: This does not delete the assets within the
    * album.
    */
-  delete(albumID: string, options?: RequestOptions): APIPromise<unknown> {
-    return this._client.delete(path`/api/albums/${albumID}`, options);
+  delete(albumID: string, options?: RequestOptions): APIPromise<void> {
+    return this._client.delete(path`/api/albums/${albumID}`, {
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
   }
 }
 
@@ -72,8 +74,6 @@ export interface AlbumResponse {
 
   description?: string | null;
 }
-
-export type AlbumDeleteResponse = unknown;
 
 export interface AlbumCreateParams {
   name: string;
@@ -94,7 +94,6 @@ Albums.Assets = Assets;
 export declare namespace Albums {
   export {
     type AlbumResponse as AlbumResponse,
-    type AlbumDeleteResponse as AlbumDeleteResponse,
     type AlbumResponsesCursorPage as AlbumResponsesCursorPage,
     type AlbumCreateParams as AlbumCreateParams,
     type AlbumUpdateParams as AlbumUpdateParams,
@@ -105,8 +104,6 @@ export declare namespace Albums {
     Assets as Assets,
     type AlbumAssetAssociation as AlbumAssetAssociation,
     type AssetListResponse as AssetListResponse,
-    type AssetAddResponse as AssetAddResponse,
-    type AssetRemoveResponse as AssetRemoveResponse,
     type AssetAddParams as AssetAddParams,
     type AssetRemoveParams as AssetRemoveParams,
   };
