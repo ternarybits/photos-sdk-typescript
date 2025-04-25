@@ -25,9 +25,7 @@ import { FinalRequestOptions, RequestOptions } from './internal/request-options'
 import {
   AssetCreateParams,
   AssetDeleteResponse,
-  AssetDownloadResponse,
   AssetDownloadThumbnailParams,
-  AssetDownloadThumbnailResponse,
   AssetListParams,
   AssetResponse,
   AssetResponsesCursorPage,
@@ -735,8 +733,6 @@ export declare namespace Photos {
     Assets as Assets,
     type AssetResponse as AssetResponse,
     type AssetDeleteResponse as AssetDeleteResponse,
-    type AssetDownloadResponse as AssetDownloadResponse,
-    type AssetDownloadThumbnailResponse as AssetDownloadThumbnailResponse,
     type AssetResponsesCursorPage as AssetResponsesCursorPage,
     type AssetCreateParams as AssetCreateParams,
     type AssetListParams as AssetListParams,
