@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.8 (2025-04-29)
+
+Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/ternarybits/photos-sdk-typescript/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
+
+### Chores
+
+* configure new SDK language ([a611fc4](https://github.com/ternarybits/photos-sdk-typescript/commit/a611fc435fbe8324ab89b54d464f23dc2f010174))
+
 ## 0.1.0-alpha.7 (2025-04-29)
 
 Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/ternarybits/photos-sdk-typescript/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
