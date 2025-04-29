@@ -184,7 +184,7 @@ export interface AssetListParams extends CursorPageParams {
 
 export interface AssetDownloadThumbnailParams {
   /**
-   * Desired thumbnail size (e.g., small, medium)
+   * Desired thumbnail size (e.g., thumbnail, preview)
    */
   size?: string | null;
 }

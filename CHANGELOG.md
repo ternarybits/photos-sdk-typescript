@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.7 (2025-04-29)
+
+Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/ternarybits/photos-sdk-typescript/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
+
+### Features
+
+* **api:** update via SDK Studio ([a2d1be9](https://github.com/ternarybits/photos-sdk-typescript/commit/a2d1be9a8fc81d4482836ad5bde9da68da527c8e))
+* **api:** update via SDK Studio ([b00ae4a](https://github.com/ternarybits/photos-sdk-typescript/commit/b00ae4a7832bbb16e6c5bbdee59ae3b76598e928))
+
+
+### Chores
+
+* **internal:** refactor utils ([6546597](https://github.com/ternarybits/photos-sdk-typescript/commit/6546597932ab87b5305443a7b984aa782e29395e))
+
 ## 0.1.0-alpha.6 (2025-04-25)
 
 Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/ternarybits/photos-sdk-typescript/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
