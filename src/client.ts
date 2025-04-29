@@ -30,6 +30,7 @@ import {
   AssetResponsesCursorPage,
   Assets,
 } from './resources/assets';
+import { Search, SearchResponse, SearchSearchParams } from './resources/search';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
 import { isEmptyObj } from './internal/utils/values';
@@ -718,9 +719,11 @@ export class Photos {
 
   assets: API.Assets = new API.Assets(this);
   albums: API.Albums = new API.Albums(this);
+  search: API.Search = new API.Search(this);
 }
 Photos.Assets = Assets;
 Photos.Albums = Albums;
+Photos.Search = Search;
 export declare namespace Photos {
   export type RequestOptions = Opts.RequestOptions;
 
@@ -743,5 +746,11 @@ export declare namespace Photos {
     type AlbumCreateParams as AlbumCreateParams,
     type AlbumUpdateParams as AlbumUpdateParams,
     type AlbumListParams as AlbumListParams,
+  };
+
+  export {
+    Search as Search,
+    type SearchResponse as SearchResponse,
+    type SearchSearchParams as SearchSearchParams,
   };
 }

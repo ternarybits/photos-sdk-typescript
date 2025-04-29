@@ -16,3 +16,4 @@ export {
   type AssetDownloadThumbnailParams,
   type AssetResponsesCursorPage,
 } from './assets';
+export { Search, type SearchResponse, type SearchSearchParams } from './search';
