@@ -39,3 +39,13 @@ Methods:
 - <code title="get /api/albums/{album_id}/assets">client.albums.assets.<a href="./src/resources/albums/assets.ts">list</a>(albumID) -> AssetListResponse</code>
 - <code title="post /api/albums/{album_id}/assets">client.albums.assets.<a href="./src/resources/albums/assets.ts">add</a>(albumID, { ...params }) -> void</code>
 - <code title="delete /api/albums/{album_id}/assets">client.albums.assets.<a href="./src/resources/albums/assets.ts">remove</a>(albumID, { ...params }) -> void</code>
+
+# Search
+
+Types:
+
+- <code><a href="./src/resources/search.ts">SearchResponse</a></code>
+
+Methods:
+
+- <code title="get /api/search">client.search.<a href="./src/resources/search.ts">search</a>({ ...params }) -> SearchResponse</code>
