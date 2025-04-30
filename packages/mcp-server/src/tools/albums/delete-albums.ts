@@ -24,8 +24,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Photos, args: any) => {
-  const { album_id } = args;
+export const handler = (client: Photos, args: Record<string, unknown> | undefined) => {
+  const { album_id, ...body } = args as any;
   return client.albums.delete(album_id);
 };
 

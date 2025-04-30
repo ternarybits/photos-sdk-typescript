@@ -40,8 +40,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Photos, args: any) => {
-  const { ...body } = args;
+export const handler = (client: Photos, args: Record<string, unknown> | undefined) => {
+  const body = args as any;
   return client.search.search(body);
 };
 
