@@ -24,8 +24,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Photos, args: any) => {
-  const { asset_id } = args;
+export const handler = (client: Photos, args: Record<string, unknown> | undefined) => {
+  const { asset_id, ...body } = args as any;
   return client.assets.download(asset_id);
 };
 

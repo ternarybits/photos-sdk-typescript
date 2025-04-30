@@ -32,8 +32,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Photos, args: any) => {
-  const { album_id, ...body } = args;
+export const handler = (client: Photos, args: Record<string, unknown> | undefined) => {
+  const { album_id, ...body } = args as any;
   return client.albums.assets.remove(album_id, body);
 };
 
