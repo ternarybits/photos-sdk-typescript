@@ -16,4 +16,19 @@ export {
   type AssetDownloadThumbnailParams,
   type AssetResponsesCursorPage,
 } from './assets';
+export {
+  Faces,
+  type FaceResponse,
+  type FaceUpdateParams,
+  type FaceListParams,
+  type FaceResponsesCursorPage,
+} from './faces';
+export {
+  People,
+  type PersonResponse,
+  type PersonCreateParams,
+  type PersonUpdateParams,
+  type PersonListParams,
+  type PersonResponsesCursorPage,
+} from './people';
 export { Search, type SearchResponse, type SearchSearchParams } from './search';

@@ -17,6 +17,15 @@ import delete_albums from './albums/delete-albums';
 import list_albums_assets from './albums/assets/list-albums-assets';
 import add_albums_assets from './albums/assets/add-albums-assets';
 import remove_albums_assets from './albums/assets/remove-albums-assets';
+import retrieve_faces from './faces/retrieve-faces';
+import update_faces from './faces/update-faces';
+import list_faces from './faces/list-faces';
+import delete_faces from './faces/delete-faces';
+import create_people from './people/create-people';
+import retrieve_people from './people/retrieve-people';
+import update_people from './people/update-people';
+import list_people from './people/list-people';
+import delete_people from './people/delete-people';
 import search_search from './search/search-search';
 
 export type HandlerFunction = (client: Photos, args: Record<string, unknown> | undefined) => Promise<any>;
@@ -53,6 +62,15 @@ addEndpoint(delete_albums);
 addEndpoint(list_albums_assets);
 addEndpoint(add_albums_assets);
 addEndpoint(remove_albums_assets);
+addEndpoint(retrieve_faces);
+addEndpoint(update_faces);
+addEndpoint(list_faces);
+addEndpoint(delete_faces);
+addEndpoint(create_people);
+addEndpoint(retrieve_people);
+addEndpoint(update_people);
+addEndpoint(list_people);
+addEndpoint(delete_people);
 addEndpoint(search_search);
 
 export type Filter = {
