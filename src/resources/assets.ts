@@ -51,10 +51,11 @@ export class Assets extends APIResource {
   /**
    * Downloads the original file for a specific asset.
    */
-  download(assetID: string, options?: RequestOptions): APIPromise<void> {
+  download(assetID: string, options?: RequestOptions): APIPromise<Response> {
     return this._client.get(path`/api/assets/${assetID}/download`, {
       ...options,
-      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+      headers: buildHeaders([{ Accept: 'image/*' }, options?.headers]),
+      __binaryResponse: true,
     });
   }
 
@@ -66,11 +67,12 @@ export class Assets extends APIResource {
     assetID: string,
     query: AssetDownloadThumbnailParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<void> {
+  ): APIPromise<Response> {
     return this._client.get(path`/api/assets/${assetID}/thumbnail`, {
       query,
       ...options,
-      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+      headers: buildHeaders([{ Accept: 'image/*' }, options?.headers]),
+      __binaryResponse: true,
     });
   }
 }

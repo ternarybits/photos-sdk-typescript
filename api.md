@@ -10,8 +10,8 @@ Methods:
 - <code title="get /api/assets/{asset_id}">client.assets.<a href="./src/resources/assets.ts">retrieve</a>(assetID) -> AssetResponse</code>
 - <code title="get /api/assets">client.assets.<a href="./src/resources/assets.ts">list</a>({ ...params }) -> AssetResponsesCursorPage</code>
 - <code title="delete /api/assets/{asset_id}">client.assets.<a href="./src/resources/assets.ts">delete</a>(assetID) -> void</code>
-- <code title="get /api/assets/{asset_id}/download">client.assets.<a href="./src/resources/assets.ts">download</a>(assetID) -> void</code>
-- <code title="get /api/assets/{asset_id}/thumbnail">client.assets.<a href="./src/resources/assets.ts">downloadThumbnail</a>(assetID, { ...params }) -> void</code>
+- <code title="get /api/assets/{asset_id}/download">client.assets.<a href="./src/resources/assets.ts">download</a>(assetID) -> Response</code>
+- <code title="get /api/assets/{asset_id}/thumbnail">client.assets.<a href="./src/resources/assets.ts">downloadThumbnail</a>(assetID, { ...params }) -> Response</code>
 
 # Albums
 
