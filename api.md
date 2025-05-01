@@ -40,6 +40,33 @@ Methods:
 - <code title="post /api/albums/{album_id}/assets">client.albums.assets.<a href="./src/resources/albums/assets.ts">add</a>(albumID, { ...params }) -> void</code>
 - <code title="delete /api/albums/{album_id}/assets">client.albums.assets.<a href="./src/resources/albums/assets.ts">remove</a>(albumID, { ...params }) -> void</code>
 
+# Faces
+
+Types:
+
+- <code><a href="./src/resources/faces.ts">FaceResponse</a></code>
+
+Methods:
+
+- <code title="get /api/faces/{face_id}">client.faces.<a href="./src/resources/faces.ts">retrieve</a>(faceID) -> FaceResponse</code>
+- <code title="patch /api/faces/{face_id}">client.faces.<a href="./src/resources/faces.ts">update</a>(faceID, { ...params }) -> FaceResponse</code>
+- <code title="get /api/faces">client.faces.<a href="./src/resources/faces.ts">list</a>({ ...params }) -> FaceResponsesCursorPage</code>
+- <code title="delete /api/faces/{face_id}">client.faces.<a href="./src/resources/faces.ts">delete</a>(faceID) -> void</code>
+
+# People
+
+Types:
+
+- <code><a href="./src/resources/people.ts">PersonResponse</a></code>
+
+Methods:
+
+- <code title="post /api/people">client.people.<a href="./src/resources/people.ts">create</a>({ ...params }) -> PersonResponse</code>
+- <code title="get /api/people/{person_id}">client.people.<a href="./src/resources/people.ts">retrieve</a>(personID) -> PersonResponse</code>
+- <code title="patch /api/people/{person_id}">client.people.<a href="./src/resources/people.ts">update</a>(personID, { ...params }) -> PersonResponse</code>
+- <code title="get /api/people">client.people.<a href="./src/resources/people.ts">list</a>({ ...params }) -> PersonResponsesCursorPage</code>
+- <code title="delete /api/people/{person_id}">client.people.<a href="./src/resources/people.ts">delete</a>(personID) -> void</code>
+
 # Search
 
 Types:
