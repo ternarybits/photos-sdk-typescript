@@ -30,6 +30,21 @@ import {
   AssetResponsesCursorPage,
   Assets,
 } from './resources/assets';
+import {
+  FaceListParams,
+  FaceResponse,
+  FaceResponsesCursorPage,
+  FaceUpdateParams,
+  Faces,
+} from './resources/faces';
+import {
+  People,
+  PersonCreateParams,
+  PersonListParams,
+  PersonResponse,
+  PersonResponsesCursorPage,
+  PersonUpdateParams,
+} from './resources/people';
 import { Search, SearchResponse, SearchSearchParams } from './resources/search';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
@@ -719,10 +734,14 @@ export class Photos {
 
   assets: API.Assets = new API.Assets(this);
   albums: API.Albums = new API.Albums(this);
+  faces: API.Faces = new API.Faces(this);
+  people: API.People = new API.People(this);
   search: API.Search = new API.Search(this);
 }
 Photos.Assets = Assets;
 Photos.Albums = Albums;
+Photos.Faces = Faces;
+Photos.People = People;
 Photos.Search = Search;
 export declare namespace Photos {
   export type RequestOptions = Opts.RequestOptions;
@@ -746,6 +765,23 @@ export declare namespace Photos {
     type AlbumCreateParams as AlbumCreateParams,
     type AlbumUpdateParams as AlbumUpdateParams,
     type AlbumListParams as AlbumListParams,
+  };
+
+  export {
+    Faces as Faces,
+    type FaceResponse as FaceResponse,
+    type FaceResponsesCursorPage as FaceResponsesCursorPage,
+    type FaceUpdateParams as FaceUpdateParams,
+    type FaceListParams as FaceListParams,
+  };
+
+  export {
+    People as People,
+    type PersonResponse as PersonResponse,
+    type PersonResponsesCursorPage as PersonResponsesCursorPage,
+    type PersonCreateParams as PersonCreateParams,
+    type PersonUpdateParams as PersonUpdateParams,
+    type PersonListParams as PersonListParams,
   };
 
   export {

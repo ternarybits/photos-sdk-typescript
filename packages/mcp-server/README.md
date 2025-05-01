@@ -180,6 +180,21 @@ The following tools are available in this MCP server.
 - `add_albums_assets` (`write`): Adds one or more existing assets to a specific album.
 - `remove_albums_assets` (`write`): Removes one or more assets from a specific album. Note: This does not delete the assets themselves.
 
+### Resource `faces`:
+
+- `retrieve_faces` (`read`): Retrieves details for a specific face.
+- `update_faces` (`write`): Updates the details of a specific face, currently only supporting associating/disassociating with a person.
+- `list_faces` (`read`): Retrieves a paginated list of faces, optionally filtered by asset or person, ordered by creation time, descending.
+- `delete_faces` (`write`): Deletes a specific face entry. This does not delete the associated asset or person.
+
+### Resource `people`:
+
+- `create_people` (`write`): Creates a new person entry.
+- `retrieve_people` (`read`): Retrieves details for a specific person.
+- `update_people` (`write`): Updates the details of a specific person.
+- `list_people` (`read`): Retrieves a paginated list of people, ordered by creation time, descending.
+- `delete_people` (`write`): Deletes a specific person. Associated faces will have their person_id set to NULL.
+
 ### Resource `search`:
 
 - `search_search` (`read`): Searches for assets based on a text query using semantic similarity.
