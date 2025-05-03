@@ -6,7 +6,7 @@
     "rootDir": "./dist/src",
     "paths": {
       "photos/*": ["dist/src/*"],
-      "photos": ["dist/src/index.ts"],
+      "photos": ["dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
