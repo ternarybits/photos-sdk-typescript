@@ -12,7 +12,7 @@ export { endpoints } from './tools';
 export const server = new McpServer(
   {
     name: 'photos_api',
-    version: '0.1.0-alpha.10',
+    version: '0.1.0-alpha.11',
   },
   {
     capabilities: {
