@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.11 (2025-05-06)
+
+Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/ternarybits/photos-sdk-typescript/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
+
+### Bug Fixes
+
+* **mcp:** remove ajv dependency so MCP servers are more compatible with Cloudflare Workers ([5b3a812](https://github.com/ternarybits/photos-sdk-typescript/commit/5b3a812367fa5da4af45d977381492ecc6803f41))
+
+
+### Chores
+
+* **internal:** codegen related update ([5bfa88c](https://github.com/ternarybits/photos-sdk-typescript/commit/5bfa88c24b3897ec7f8b35888ac8b50a08da626a))
+* **internal:** share typescript helpers ([11e07d5](https://github.com/ternarybits/photos-sdk-typescript/commit/11e07d501e73f9a8f3f15161f26dc2265c42dfee))
+
 ## 0.1.0-alpha.10 (2025-05-01)
 
 Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/ternarybits/photos-sdk-typescript/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
