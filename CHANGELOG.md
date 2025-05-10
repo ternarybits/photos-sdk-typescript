@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.1.0-alpha.12 (2025-05-10)
+
+Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/ternarybits/photos-sdk-typescript/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
+
+### Features
+
+* **client:** add withOptions helper ([b49543b](https://github.com/ternarybits/photos-sdk-typescript/commit/b49543baaafd0aa0f4d003d08f04442f6a70f6ae))
+* **mcp:** support dynamically discovering and invoking tools for APIs with many endpoints ([7ca4fe4](https://github.com/ternarybits/photos-sdk-typescript/commit/7ca4fe4ca4e2dfac6651917d80734c651dbfef21))
+
+
+### Bug Fixes
+
+* **client:** always overwrite when merging headers ([c545c45](https://github.com/ternarybits/photos-sdk-typescript/commit/c545c450a28f16945d7e424b5eafade1cdb93108))
+
+
+### Chores
+
+* **build:** automatically build subpackages if present ([e54d3f1](https://github.com/ternarybits/photos-sdk-typescript/commit/e54d3f150795506fd7c3a06d686f962703be6072))
+* **client:** drop support for EOL node versions ([bf92f96](https://github.com/ternarybits/photos-sdk-typescript/commit/bf92f96442f70724d920fdda97f83a88b415cc8a))
+
 ## 0.1.0-alpha.11 (2025-05-06)
 
 Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/ternarybits/photos-sdk-typescript/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
