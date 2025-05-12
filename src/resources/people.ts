@@ -95,7 +95,17 @@ export interface PersonUpdateParams {
   thumbnail_face_id?: string | null;
 }
 
-export interface PersonListParams extends CursorPageParams {}
+export interface PersonListParams extends CursorPageParams {
+  /**
+   * Include only people associated with this album ID
+   */
+  album_id?: string | null;
+
+  /**
+   * Include only people associated with this asset ID
+   */
+  asset_id?: string | null;
+}
 
 export declare namespace People {
   export {
