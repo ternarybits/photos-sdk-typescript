@@ -16,6 +16,16 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
+      album_id: {
+        type: 'string',
+        title: 'Album Id',
+        description: 'Include only people associated with this album ID',
+      },
+      asset_id: {
+        type: 'string',
+        title: 'Asset Id',
+        description: 'Include only people associated with this asset ID',
+      },
       limit: {
         type: 'integer',
         title: 'Limit',
