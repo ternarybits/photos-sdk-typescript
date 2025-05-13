@@ -213,6 +213,7 @@ The following tools are available in this MCP server.
 - `update_faces` (`write`): Updates the details of a specific face, currently only supporting associating/disassociating with a person.
 - `list_faces` (`read`): Retrieves a paginated list of faces, optionally filtered by asset or person, ordered by creation time, descending.
 - `delete_faces` (`write`): Deletes a specific face entry. This does not delete the associated asset or person.
+- `download_thumbnail_faces` (`read`): Retrieves a thumbnail for a specific face.
 
 ### Resource `people`:
 
