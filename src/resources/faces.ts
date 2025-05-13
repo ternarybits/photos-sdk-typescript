@@ -61,6 +61,8 @@ export interface FaceResponse {
 
   person_id?: string | null;
 
+  thumbnail_url?: string | null;
+
   timestamp_ms?: number | null;
 }
 

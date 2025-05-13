@@ -69,6 +69,8 @@ export interface PersonResponse {
   name?: string | null;
 
   thumbnail_face_id?: string | null;
+
+  thumbnail_face_url?: string | null;
 }
 
 export interface PersonCreateParams {
