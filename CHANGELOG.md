@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.14 (2025-05-13)
+
+Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/ternarybits/photos-sdk-typescript/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
+
+### Bug Fixes
+
+* **mcp:** explicitly include zod and zod-to-json-schema in package.json ([3456deb](https://github.com/ternarybits/photos-sdk-typescript/commit/3456deb5606ee220c12bef3fb2d6b05798d94870))
+
+
+### Chores
+
+* **internal:** codegen related update ([d2a158e](https://github.com/ternarybits/photos-sdk-typescript/commit/d2a158ed0eb44de1cde7fcab1c0ae91f422c5bf4))
+* **package:** remove engines ([60c1eba](https://github.com/ternarybits/photos-sdk-typescript/commit/60c1eba3fa14b942e3fa70654140e563f1bb4466))
+* **tests:** use node 22 for CI tests ([57a3fb4](https://github.com/ternarybits/photos-sdk-typescript/commit/57a3fb4ad6ed07075c3f65d3e80d2829e50a888f))
+
 ## 0.1.0-alpha.13 (2025-05-12)
 
 Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/ternarybits/photos-sdk-typescript/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
