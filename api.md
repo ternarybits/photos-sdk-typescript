@@ -45,7 +45,6 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/faces.ts">FaceResponse</a></code>
-- <code><a href="./src/resources/faces.ts">FaceDownloadThumbnailResponse</a></code>
 
 Methods:
 
@@ -53,7 +52,7 @@ Methods:
 - <code title="patch /api/faces/{face_id}">client.faces.<a href="./src/resources/faces.ts">update</a>(faceID, { ...params }) -> FaceResponse</code>
 - <code title="get /api/faces">client.faces.<a href="./src/resources/faces.ts">list</a>({ ...params }) -> FaceResponsesCursorPage</code>
 - <code title="delete /api/faces/{face_id}">client.faces.<a href="./src/resources/faces.ts">delete</a>(faceID) -> void</code>
-- <code title="get /api/faces/{face_id}/thumbnail">client.faces.<a href="./src/resources/faces.ts">downloadThumbnail</a>(faceID) -> unknown</code>
+- <code title="get /api/faces/{face_id}/thumbnail">client.faces.<a href="./src/resources/faces.ts">downloadThumbnail</a>(faceID) -> Response</code>
 
 # People
 
