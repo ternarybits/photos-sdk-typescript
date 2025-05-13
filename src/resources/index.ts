@@ -19,6 +19,7 @@ export {
 export {
   Faces,
   type FaceResponse,
+  type FaceDownloadThumbnailResponse,
   type FaceUpdateParams,
   type FaceListParams,
   type FaceResponsesCursorPage,
