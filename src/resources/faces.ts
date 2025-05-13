@@ -44,6 +44,13 @@ export class Faces extends APIResource {
       headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
     });
   }
+
+  /**
+   * Retrieves a thumbnail for a specific face.
+   */
+  downloadThumbnail(faceID: string, options?: RequestOptions): APIPromise<unknown> {
+    return this._client.get(path`/api/faces/${faceID}/thumbnail`, options);
+  }
 }
 
 export type FaceResponsesCursorPage = CursorPage<FaceResponse>;
@@ -66,6 +73,8 @@ export interface FaceResponse {
   timestamp_ms?: number | null;
 }
 
+export type FaceDownloadThumbnailResponse = unknown;
+
 export interface FaceUpdateParams {
   person_id?: string | null;
 }
@@ -85,6 +94,7 @@ export interface FaceListParams extends CursorPageParams {
 export declare namespace Faces {
   export {
     type FaceResponse as FaceResponse,
+    type FaceDownloadThumbnailResponse as FaceDownloadThumbnailResponse,
     type FaceResponsesCursorPage as FaceResponsesCursorPage,
     type FaceUpdateParams as FaceUpdateParams,
     type FaceListParams as FaceListParams,
