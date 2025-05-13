@@ -31,7 +31,6 @@ import {
   Assets,
 } from './resources/assets';
 import {
-  FaceDownloadThumbnailResponse,
   FaceListParams,
   FaceResponse,
   FaceResponsesCursorPage,
@@ -788,7 +787,6 @@ export declare namespace Photos {
   export {
     Faces as Faces,
     type FaceResponse as FaceResponse,
-    type FaceDownloadThumbnailResponse as FaceDownloadThumbnailResponse,
     type FaceResponsesCursorPage as FaceResponsesCursorPage,
     type FaceUpdateParams as FaceUpdateParams,
     type FaceListParams as FaceListParams,
