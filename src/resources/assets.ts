@@ -182,6 +182,11 @@ export interface AssetListParams extends CursorPageParams {
    * Filter by assets in a specific album
    */
   album_id?: string | null;
+
+  /**
+   * Filter by assets associated with a specific person ID
+   */
+  person_id?: string | null;
 }
 
 export interface AssetDownloadThumbnailParams {
