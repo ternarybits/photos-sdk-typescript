@@ -26,6 +26,11 @@ export const tool: Tool = {
         type: 'integer',
         title: 'Limit',
       },
+      person_id: {
+        type: 'string',
+        title: 'Person Id',
+        description: 'Filter by assets associated with a specific person ID',
+      },
       starting_after_id: {
         type: 'string',
         title: 'Starting After Id',

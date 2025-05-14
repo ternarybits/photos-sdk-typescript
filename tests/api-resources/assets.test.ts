@@ -66,7 +66,7 @@ describe('resource assets', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.assets.list(
-        { album_id: 'album_id', limit: 1, starting_after_id: 'starting_after_id' },
+        { album_id: 'album_id', limit: 1, person_id: 'person_id', starting_after_id: 'starting_after_id' },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Photos.NotFoundError);
