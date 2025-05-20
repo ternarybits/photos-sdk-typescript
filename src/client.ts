@@ -24,7 +24,6 @@ import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
 import {
   AssetCreateParams,
-  AssetDownloadThumbnailParams,
   AssetListParams,
   AssetResponse,
   AssetResponsesCursorPage,
@@ -772,7 +771,6 @@ export declare namespace Photos {
     type AssetResponsesCursorPage as AssetResponsesCursorPage,
     type AssetCreateParams as AssetCreateParams,
     type AssetListParams as AssetListParams,
-    type AssetDownloadThumbnailParams as AssetDownloadThumbnailParams,
   };
 
   export {
